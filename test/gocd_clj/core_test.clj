@@ -2,6 +2,9 @@
   (:require [clojure.test :refer :all]
             [gocd-clj.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest add-pipeline-test
+  (testing "Add pipeline as a key-value pair to the env"
+    (let [env (add-pipeline {} :build)]
+      (is (map? env))
+      (is (:build env))
+      (is (map? (:build env))))))
