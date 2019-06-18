@@ -1,4 +1,5 @@
-(ns gocd-clj.core)
+(ns gocd-clj.core
+  (:require [clojure.spec.alpha :as s]))
 
 ;; generators
 (defn add-pipeline
@@ -7,6 +8,10 @@
   (assoc env name {}))
 
 ;; spec
+
+(s/def ::name string?)
+(s/def ::pipeline
+  (s/keys :req [::name]))
 
 
 ;; renderers
