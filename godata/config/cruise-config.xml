@@ -1,40 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="124">
   <server artifactsdir="artifacts" agentAutoRegisterKey="123456789abcdefgh987654321" webhookSecret="57b5b4a5-e839-4735-935c-168e97b80033" commandRepositoryLocation="default" serverId="239404b7-69fe-4fc9-81e9-945654461562" tokenGenerationKey="2b410a04-4301-4570-a830-5747b1aa70a7" />
-  <pipelines group="CpuSoak">
-    <pipeline name="Build">
-      <materials>
-        <git url="https://github.com/fahrrad/cpu-soak" shallowClone="true" username="fahrrad" encryptedPassword="AES:ISq1LRDSu/q/cFrdieJuhQ==:ATjbQFGS518ukiyUIEQ4sUY3TIfF/0QxDq7X9PMdF2jag+CxsYU0rLhgCipjm7IK" />
-      </materials>
-      <stage name="Build">
-        <jobs>
-          <job name="Test">
-            <tasks>
-              <exec command="boot" />
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-    <pipeline name="deploy">
-      <materials>
-        <pipeline pipelineName="Build" stageName="Build" />
-      </materials>
-      <stage name="deploy">
-        <jobs>
-          <job name="deploy">
-            <tasks>
-              <exec command="boot" />
-            </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-  </pipelines>
-  <agents>
-    <agent hostname="ae08984375b6" ipaddress="172.22.0.3" uuid="7fc67918-e98a-4f8f-ab49-4f5c013c36d3" />
-    <agent hostname="24e0f11247de" ipaddress="172.22.0.4" uuid="4ec4f570-4de5-43ce-901e-18a34130c645" />
-    <agent hostname="e51f9946e28b" ipaddress="172.22.0.3" uuid="21d3e04c-8b11-4d5b-bdd5-d2f7dd5dbb8e" />
-    <agent hostname="8f651f693193" ipaddress="172.22.0.4" uuid="c1dd9526-05df-4bc7-a034-f5e8d7469b2e" />
-  </agents>
 </cruise>
